@@ -5,7 +5,6 @@ import { resolveBuilder } from './builders/resolveBuilder';
 import { outputBuilder } from './builders/outputBuilder';
 import { ConfigOptions } from './types';
 import { devServerBuilder } from './builders/devServerBuilder';
-import 'webpack-dev-server'
 
 export function webpackConfigBuilder(configOptions: ConfigOptions): Configuration {
     return {
@@ -15,6 +14,7 @@ export function webpackConfigBuilder(configOptions: ConfigOptions): Configuratio
         plugins: pluginBuilder(configOptions),
         module: moduleBuilder(),
         resolve: resolveBuilder(),
-        devServer: devServerBuilder(configOptions)
+        devServer: devServerBuilder(configOptions),
+        devtool: configOptions.isDev ? 'inline-source-map' : 'none'
     }
 }
