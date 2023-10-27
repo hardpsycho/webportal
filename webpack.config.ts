@@ -1,9 +1,9 @@
 import { Configuration } from 'webpack'
-import { webpackConfigBuilder } from './config/webpack/webpackConfigBuilder';
-import { ConfigOptions, WebpackArgs } from './config/webpack/types';
-import path from 'path';
+import { webpackConfigBuilder } from './config/webpack/webpackConfigBuilder'
+import { ConfigOptions, WebpackArgs } from './config/webpack/types'
+import path from 'path'
 
-export default function(args: WebpackArgs) {
+export default function (args: WebpackArgs) {
     const configOptions: ConfigOptions = {
         pathToEntry: path.resolve('src', 'index.tsx'),
         pathToOutputFolder: path.resolve('build'),

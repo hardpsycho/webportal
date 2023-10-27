@@ -1,19 +1,19 @@
-import { ModuleOptions, RuleSetRule } from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import { ConfigOptions } from "../types";
+import { ModuleOptions, RuleSetRule } from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { ConfigOptions } from '../types'
 
 export function moduleBuilder(configOption: ConfigOptions): ModuleOptions {
     const tsLoaderRule: RuleSetRule = {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
     }
 
     const styleLoadersRule: RuleSetRule = {
         test: /\.s?[ac]ss$/i,
         use: [
             // Creates `style` nodes from JS strings
-            configOption.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            configOption.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
@@ -29,14 +29,11 @@ export function moduleBuilder(configOption: ConfigOptions): ModuleOptions {
                 }
             },
             // Compiles Sass to CSS
-            "sass-loader",
-        ],
+            'sass-loader'
+        ]
     }
 
     return {
-        rules: [
-            tsLoaderRule,
-            styleLoadersRule
-        ],
+        rules: [tsLoaderRule, styleLoadersRule]
     }
 }

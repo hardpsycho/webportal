@@ -1,4 +1,4 @@
-import { Configuration } from "webpack"
+import { Configuration } from 'webpack'
 
 type Mode = Exclude<Configuration['mode'], undefined | 'none'>
 
