@@ -12,7 +12,7 @@ export function webpackConfigBuilder(configOptions: ConfigOptions): Configuratio
         entry: configOptions.pathToEntry,
         output: outputBuilder(configOptions),
         plugins: pluginBuilder(configOptions),
-        module: moduleBuilder(),
+        module: moduleBuilder(configOptions),
         resolve: resolveBuilder(),
         devServer: devServerBuilder(configOptions),
         devtool: configOptions.isDev ? 'inline-source-map' : 'none'
