@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { ProgressPlugin, WebpackPluginInstance } from 'webpack'
+
 import { ConfigOptions } from '../types'
 
 export function pluginBuilder(configOptions: ConfigOptions): WebpackPluginInstance[] {

@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack'
+
 import { ConfigOptions } from '../types'
 
 type Output = Exclude<Configuration['output'], undefined>

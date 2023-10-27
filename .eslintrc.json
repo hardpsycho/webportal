@@ -7,7 +7,9 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -16,7 +18,16 @@
     },
     "plugins": ["@typescript-eslint", "react", "prettier"],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "import/order": [
+            "error",
+            {
+                "pathGroupsExcludedImportTypes": ["path"], // for path on the top
+                "groups": ["builtin", "external", ["internal", "parent", "sibling", "index"]],
+                "newlines-between": "always",
+                "distinctGroup": false
+            }
+        ]
     },
     "ignorePatterns": ["build"],
     "settings": {
@@ -54,6 +65,12 @@
             // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
             "Hyperlink",
             { "name": "Link", "linkAttribute": "to" }
-        ]
+        ],
+        "import/resolver": {
+            // You will also need to install and configure the TypeScript resolver
+            // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+            "typescript": true,
+            "node": true
+        }
     }
 }

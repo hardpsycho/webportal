@@ -1,5 +1,6 @@
 import { ModuleOptions, RuleSetRule } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+
 import { ConfigOptions } from '../types'
 
 export function moduleBuilder(configOption: ConfigOptions): ModuleOptions {

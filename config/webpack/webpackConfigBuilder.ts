@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack'
+
 import { pluginBuilder } from './builders/pluginBuilder'
 import { moduleBuilder } from './builders/moduleBuilder'
 import { resolveBuilder } from './builders/resolveBuilder'
