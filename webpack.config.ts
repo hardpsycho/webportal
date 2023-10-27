@@ -5,7 +5,7 @@ import path from 'path';
 
 export default function(args: WebpackArgs) {
     const configOptions: ConfigOptions = {
-        pathToEntry: path.resolve('src', 'index.ts'),
+        pathToEntry: path.resolve('src', 'index.tsx'),
         pathToOutputFolder: path.resolve('build'),
         pathToIndexHtml: path.resolve('public', 'index.html'),
         mode: args.mode || 'development',
