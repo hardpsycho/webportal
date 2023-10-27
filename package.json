@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack serve --env mode=development --env port=3000",
         "build:dev": "webpack --env mode=development",
-        "build:prod": "webpack -env mode=production",
+        "build:prod": "webpack --env mode=production",
         "format:src": "prettier --write \"src/**/*\"",
         "format:all": "prettier --write .",
         "lint:ts": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\"",
