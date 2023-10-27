@@ -4,6 +4,7 @@ import { ConfigOptions } from '../types'
 
 export function devServerBuilder(configOptions: ConfigOptions): Configuration {
     return {
-        port: configOptions.port
+        port: configOptions.port,
+        historyApiFallback: true
     }
 }
