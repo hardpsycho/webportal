@@ -1,6 +1,6 @@
 import { Suspense, type FC } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import { useTheme } from '@shared/theme/useTheme'
 
