@@ -1,12 +1,12 @@
-import { Suspense, useContext, type FC } from 'react'
+import { Suspense, type FC } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
-import { ThemeContext } from '@shared/theme/themeContext'
+import { useTheme } from '@shared/theme/useTheme'
 
 interface RootProps {}
 
 const Root: FC<RootProps> = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
+    const { theme, toggleTheme } = useTheme()
 
     return (
         <div className={`app ${theme}`}>
