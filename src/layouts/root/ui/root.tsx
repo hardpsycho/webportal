@@ -1,8 +1,9 @@
 import { Suspense, type FC } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { clsx } from 'clsx'
 
 import { useTheme } from '@shared/theme/useTheme'
+import { Navbar } from '@widgets/navbar'
 
 interface RootProps {}
 
@@ -12,10 +13,7 @@ const Root: FC<RootProps> = () => {
     return (
         <div className={clsx('app', theme)}>
             <header>
-                <nav>
-                    <NavLink to={'/'}>Главная</NavLink>
-                    <NavLink to={'/about'}>О нас</NavLink>
-                </nav>
+                <Navbar />
                 <button onClick={toggleTheme}>сменить тему</button>
             </header>
             <main>
