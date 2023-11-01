@@ -2,4 +2,13 @@
     background: var(--inverted-bg-color);
     color: white;
     height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.links {
+    margin-left: auto;
+    display: flex;
+    gap: 15px;
 }

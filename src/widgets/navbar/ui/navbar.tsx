@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { NavLink } from 'react-router-dom'
 
+import { AppLink, AppLinkVariant } from '@shared/ui/appLink'
 import styles from './navbar.m.scss'
 
 interface NavbarProps {}
@@ -8,9 +8,13 @@ interface NavbarProps {}
 const Navbar: FC<NavbarProps> = () => {
     return (
         <div className={styles.navbar}>
-            <nav>
-                <NavLink to={'/'}>Главная</NavLink>
-                <NavLink to={'/about'}>О нас</NavLink>
+            <nav className={styles.links}>
+                <AppLink variant={AppLinkVariant.INVERTED} to={'/'}>
+                    Главная
+                </AppLink>
+                <AppLink variant={AppLinkVariant.INVERTED} to={'/about'}>
+                    О нас
+                </AppLink>
             </nav>
         </div>
     )
