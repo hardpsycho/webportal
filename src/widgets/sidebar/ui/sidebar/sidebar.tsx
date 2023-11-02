@@ -3,6 +3,7 @@ import { useState, type FC } from 'react'
 
 import { Button, ButtonVariant } from '@shared/ui/button'
 import styles from './sidebar.m.scss'
+import { ThemeSwitcher } from '@features/themeSwitcher'
 
 interface SidebarProps {}
 
@@ -19,7 +20,7 @@ const Sidebar: FC<SidebarProps> = () => {
                 {collapsed ? 'Открыть' : 'закрыть'}
             </Button>
             <div className={styles.switchers}>
-                {/* ThemeSwitcher */}
+                <ThemeSwitcher />
                 {/* LangSwitcher */}
             </div>
         </div>
