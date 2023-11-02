@@ -8,13 +8,12 @@ import { Navbar } from '@widgets/navbar'
 interface RootProps {}
 
 const Root: FC<RootProps> = () => {
-    const { theme, toggleTheme } = useTheme()
+    const { theme } = useTheme()
 
     return (
         <div className={clsx('app', theme)}>
             <header>
                 <Navbar />
-                <button onClick={toggleTheme}>сменить тему</button>
             </header>
             <main>
                 <Suspense fallback={<>Loading...</>}>
