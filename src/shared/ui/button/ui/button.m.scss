@@ -1,0 +1,31 @@
+.button {
+    cursor: pointer;
+    outline: none;
+}
+
+.small-size {
+    font-size: 10px;
+    padding: 8px 14px;
+}
+
+.medium-size {
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.large-size {
+    font-size: 24px;
+    padding: 14px 30px;
+}
+
+.standart {
+    border: 1px solid var(--primary-color);
+}
+
+.ghost {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
