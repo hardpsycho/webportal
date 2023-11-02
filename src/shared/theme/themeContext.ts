@@ -1,8 +1,10 @@
 import { createContext } from 'react'
 
+import { ThemeVariant } from './themeProvider'
+
 interface IThemeContex {
-    theme?: string
-    toggleTheme?: () => void
+    theme: ThemeVariant
+    toggleTheme: () => void
 }
 
-export const ThemeContext = createContext<IThemeContex>({})
+export const ThemeContext = createContext<IThemeContex | null>(null)

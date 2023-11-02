@@ -6,15 +6,20 @@ interface ThemeProviderProps {
     children: ReactNode
 }
 
-const savedTheme = localStorage.getItem('theme')
+export enum ThemeVariant {
+    LIGHT = 'hp-theme-light',
+    DARK = 'hp-theme-dark'
+}
 
-const defaultTheme = savedTheme || 'hp-theme-light'
+const savedTheme = localStorage.getItem('theme') as ThemeVariant
+
+const defaultTheme = savedTheme || ThemeVariant.LIGHT
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState(defaultTheme)
+    const [theme, setTheme] = useState<ThemeVariant>(defaultTheme)
 
     function toggleTheme() {
-        const newTheme = theme === 'hp-theme-light' ? 'hp-theme-dark' : 'hp-theme-light'
+        const newTheme = theme === ThemeVariant.LIGHT ? ThemeVariant.DARK : ThemeVariant.LIGHT
         localStorage.setItem('theme', newTheme)
         setTheme(newTheme)
     }

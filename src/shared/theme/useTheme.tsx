@@ -1,9 +1,16 @@
 import { useContext } from 'react'
 
 import { ThemeContext } from './themeContext'
+import { ThemeVariant } from './themeProvider'
 
-export const useTheme = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
+type UseTheme = () => { theme: ThemeVariant; toggleTheme: () => void }
 
-    return { theme, toggleTheme }
+export const useTheme: UseTheme = () => {
+    const themeData = useContext(ThemeContext)
+
+    if (!themeData) {
+        throw new Error('Ошибка темы')
+    }
+
+    return themeData
 }
