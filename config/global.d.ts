@@ -7,3 +7,4 @@ declare module '*.svg' {
     export default svg
 }
 declare module '*.svg?url'
+declare const WP_DEV: boolean
