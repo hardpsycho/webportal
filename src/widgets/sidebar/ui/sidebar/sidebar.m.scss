@@ -7,8 +7,8 @@
     position: relative;
 }
 
-.collapsed {
-    width: var(--sidebar-collapsed-width)
+.theme-switcher {
+    margin-left: 10px;
 }
 
 .switchers {
@@ -19,4 +19,17 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.collapsed {
+    width: var(--sidebar-collapsed-width);
+
+    .theme-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .switchers {
+        flex-direction: column;
+    }
 }
