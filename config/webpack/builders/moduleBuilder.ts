@@ -1,13 +1,21 @@
 import { ModuleOptions, RuleSetRule } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshTypeScript from 'react-refresh-typescript'
 
 import { ConfigOptions } from '../types'
 
 export function moduleBuilder(configOption: ConfigOptions): ModuleOptions {
     const tsLoaderRule: RuleSetRule = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: configOption.isDev
+            ? {
+                  getCustomTransformers: () => ({
+                      before: [ReactRefreshTypeScript()]
+                  })
+              }
+            : undefined
     }
 
     const styleLoadersRule: RuleSetRule = {
