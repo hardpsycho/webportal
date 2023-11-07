@@ -11,7 +11,7 @@ export function pluginBuilder(configOptions: ConfigOptions): WebpackPluginInstan
         new HtmlWebpackPlugin({ template: configOptions.pathToIndexHtml }),
         new MiniCssExtractPlugin(),
         new DefinePlugin({
-            WP_DEV: configOptions.isDev
+            WP_DEV: JSON.stringify(configOptions.isDev)
         })
     ]
 
