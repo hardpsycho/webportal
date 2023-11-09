@@ -13,7 +13,7 @@
         "lint:ts:fix": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --fix",
         "lint:styles": "stylelint \"**/*.{scss,css}\"",
         "lint:styles:fix": "stylelint \"**/*.{scss,css}\" --fix",
-        "test:ts": "jest"
+        "test:unit": "jest -c ./config/jest/jest.config.ts"
     },
     "keywords": [],
     "author": "",
