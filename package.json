@@ -4,7 +4,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack serve --env mode=development --env port=3000",
         "build:dev": "webpack --env mode=development",
         "build:prod": "webpack --env mode=production",
@@ -13,7 +12,8 @@
         "lint:ts": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\"",
         "lint:ts:fix": "eslint \"{src,apps,libs,test}/**/*.{ts,tsx}\" --fix",
         "lint:styles": "stylelint \"**/*.{scss,css}\"",
-        "lint:styles:fix": "stylelint \"**/*.{scss,css}\" --fix"
+        "lint:styles:fix": "stylelint \"**/*.{scss,css}\" --fix",
+        "test:ts": "jest"
     },
     "keywords": [],
     "author": "",
@@ -21,6 +21,7 @@
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
         "@svgr/webpack": "^8.1.0",
+        "@types/jest": "^29.5.8",
         "@types/node": "^20.8.9",
         "@types/react": "^18.2.33",
         "@types/react-dom": "^18.2.14",
@@ -45,6 +46,7 @@
         "stylelint": "^15.11.0",
         "stylelint-config-standard": "^34.0.0",
         "stylelint-config-standard-scss": "^11.0.0",
+        "ts-jest": "^29.1.1",
         "ts-loader": "^9.5.0",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
