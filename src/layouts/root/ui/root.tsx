@@ -6,6 +6,7 @@ import { useTheme } from '@shared/theme/useTheme'
 import { Navbar } from '@widgets/navbar'
 import { Sidebar } from '@widgets/sidebar'
 import styles from './root.m.scss'
+import { PageSpinner } from '@shared/ui/pageSpinner'
 
 interface RootProps {}
 
@@ -22,7 +23,7 @@ const Root: FC<RootProps> = () => {
                     <Sidebar />
                 </aside>
                 <main className={styles.main}>
-                    <Suspense fallback={<>Loading...</>}>
+                    <Suspense fallback={<PageSpinner />}>
                         <Outlet />
                     </Suspense>
                 </main>
