@@ -1,0 +1,11 @@
+.page-spinner {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+}
