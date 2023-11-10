@@ -15,7 +15,7 @@ export function pluginBuilder(configOptions: ConfigOptions): WebpackPluginInstan
             WP_DEV: JSON.stringify(configOptions.isDev)
         }),
         new CopyPlugin({
-            patterns: [{ from: 'public', to: '.vercel/output/static' }]
+            patterns: [{ from: 'public/locales', to: './locales' }]
         })
     ]
 
