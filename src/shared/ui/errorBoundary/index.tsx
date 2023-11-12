@@ -24,7 +24,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            return <ErrorComponent messageText='Произошла вакханалия' />
+            return <ErrorComponent />
         }
 
         return this.props.children
