@@ -12,7 +12,8 @@ export default function (args: WebpackArgs) {
         pathToIndexHtml: path.resolve('public', 'index.html'),
         mode: args.mode || 'development',
         port: Number(args.port) || 3000,
-        isDev: args.mode ? args.mode === 'development' : true
+        isDev: args.mode ? args.mode === 'development' : true,
+        analyze: Boolean(args.analyze) || false
     }
 
     const config: Configuration = webpackConfigBuilder(configOptions)

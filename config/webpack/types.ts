@@ -9,9 +9,11 @@ export interface ConfigOptions {
     mode: Mode
     port: number
     isDev: boolean
+    analyze: boolean
 }
 
 export interface WebpackArgs {
     port?: string
     mode?: Mode
+    analyze?: string
 }
