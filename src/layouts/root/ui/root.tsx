@@ -7,6 +7,7 @@ import { Navbar } from '@widgets/navbar'
 import { Sidebar } from '@widgets/sidebar'
 import styles from './root.m.scss'
 import { PageSpinner } from '@shared/ui/pageSpinner'
+import { ErrorBoundary } from '@shared/ui/errorBoundary'
 
 interface RootProps {}
 
@@ -24,7 +25,9 @@ const Root: FC<RootProps> = () => {
                 </aside>
                 <main className={styles.main}>
                     <Suspense fallback={<PageSpinner />}>
-                        <Outlet />
+                        <ErrorBoundary>
+                            <Outlet />
+                        </ErrorBoundary>
                     </Suspense>
                 </main>
             </div>
