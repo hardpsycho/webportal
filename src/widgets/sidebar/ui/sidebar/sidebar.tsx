@@ -16,8 +16,15 @@ const Sidebar: FC<SidebarProps> = () => {
     }
 
     return (
-        <div className={clsx(styles.sidebar, { [styles.collapsed]: collapsed })}>
-            <Button onClick={sidebarToggle} theme={ButtonVariant.GHOST}>
+        <div
+            data-testid='sidebar'
+            className={clsx(styles.sidebar, { [styles.collapsed]: collapsed })}
+        >
+            <Button
+                data-testid='toggle-collapse'
+                onClick={sidebarToggle}
+                theme={ButtonVariant.GHOST}
+            >
                 {collapsed ? 'Открыть' : 'закрыть'}
             </Button>
             <div className={styles.switchers}>
