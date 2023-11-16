@@ -120,6 +120,7 @@
             {
                 "name": "typescript-plugin-css-modules",
                 "options": {
+                    "classnameTransform": "camelCase",
                     "customMatcher": "\\.m\\.(c|le|sa|sc)ss$"
                 }
             }
