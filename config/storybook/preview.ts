@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react'
 
+import { globalDecorator } from '@shared/libs/storybook/globalDecorator'
+
 const preview: Preview = {
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,7 +11,8 @@ const preview: Preview = {
                 date: /Date$/i
             }
         }
-    }
+    },
+    decorators: [globalDecorator]
 }
 
 export default preview
