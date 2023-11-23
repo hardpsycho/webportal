@@ -1,6 +1,8 @@
 {
-    "lang-btn": "RU",
-    "main_page": "Home",
-    "about_page": "About us",
-    "not_found_page": "Page Not Found"
+  "lang-btn": "RU",
+  "main_page": "Home",
+  "about_page": "About us",
+  "not_found_page": "Page Not Found",
+  "open": "open",
+  "close": "close"
 }

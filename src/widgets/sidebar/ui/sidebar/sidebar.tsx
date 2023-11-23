@@ -1,5 +1,6 @@
 import { clsx } from 'clsx'
 import { useState, type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Button, ButtonVariant } from '@shared/ui/button'
 import styles from './sidebar.m.scss'
@@ -10,6 +11,7 @@ interface SidebarProps {}
 
 const Sidebar: FC<SidebarProps> = () => {
     const [collapsed, setCollapsed] = useState(false)
+    const { t } = useTranslation()
 
     const sidebarToggle = function () {
         setCollapsed((prev) => !prev)
@@ -25,7 +27,7 @@ const Sidebar: FC<SidebarProps> = () => {
                 onClick={sidebarToggle}
                 theme={ButtonVariant.GHOST}
             >
-                {collapsed ? 'Открыть' : 'закрыть'}
+                {collapsed ? t('open') : t('close')}
             </Button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
