@@ -28,6 +28,26 @@
                 "newlines-between": "always",
                 "distinctGroup": false
             }
+        ],
+        "i18next/no-literal-string": [
+            "error",
+            {
+                "mode": "jsx-only",
+                "jsx-attributes": {
+                    "exclude": [
+                        "className",
+                        "styleName",
+                        "style",
+                        "type",
+                        "key",
+                        "id",
+                        "width",
+                        "height",
+                        "data-testid",
+                        "to"
+                    ]
+                }
+            }
         ]
     },
     "overrides": [
