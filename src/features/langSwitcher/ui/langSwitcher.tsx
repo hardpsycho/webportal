@@ -14,7 +14,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
     }
     return (
-        <Button onClick={langToggle} theme={ButtonVariant.GHOST} className={className}>
+        <Button onClick={langToggle} variant={ButtonVariant.GHOST} className={className}>
             {t('lang-btn')}
         </Button>
     )

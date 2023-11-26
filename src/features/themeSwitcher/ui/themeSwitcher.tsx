@@ -17,7 +17,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
     return (
         <Button
-            theme={ButtonVariant.GHOST}
+            variant={ButtonVariant.GHOST}
             className={clsx(styles.themeSwitcher, className)}
             onClick={toggleTheme}
         >
