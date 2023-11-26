@@ -19,10 +19,15 @@ const AppLink: FC<AppLinkProps> = ({
     children,
     to,
     variant = AppLinkVariant.PRIMARY,
+    className,
     ...otherProps
 }) => {
     return (
-        <NavLink {...otherProps} to={to} className={clsx(styles.appLink, styles[variant])}>
+        <NavLink
+            {...otherProps}
+            to={to}
+            className={clsx(styles.appLink, styles[variant], className)}
+        >
             {children}
         </NavLink>
     )
