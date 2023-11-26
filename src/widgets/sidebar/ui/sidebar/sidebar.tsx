@@ -25,13 +25,13 @@ const Sidebar: FC<SidebarProps> = () => {
             <Button
                 data-testid='toggle-collapse'
                 onClick={sidebarToggle}
-                theme={ButtonVariant.GHOST}
+                variant={ButtonVariant.GHOST}
             >
                 {collapsed ? t('open') : t('close')}
             </Button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher className={styles.themeSwitcher} />
+                <LangSwitcher className={styles.langSwitcher} />
             </div>
         </div>
     )
