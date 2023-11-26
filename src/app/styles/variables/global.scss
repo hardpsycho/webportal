@@ -1,6 +1,11 @@
 :root {
     --font-family: roboto, 'sans-serif';
 
+    // шрифт s
+    --font-size-s: 12px;
+    --font-lh-s: 160%;
+    --font-s: var(--font-size-s) / var(--font-lh-s) var(--font-family);
+
     // шрифт m
     --font-size-m: 16px;
     --font-lh-m: 150%;
