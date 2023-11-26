@@ -5,7 +5,8 @@ import styles from './button.m.scss'
 
 export enum ButtonVariant {
     STANDART = 'standart',
-    GHOST = 'ghost'
+    GHOST = 'ghost',
+    OUTLINED = 'outlined'
 }
 
 export enum ButtonSize {
@@ -17,21 +18,27 @@ export enum ButtonSize {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: string
-    theme?: ButtonVariant
+    variant?: ButtonVariant
     size?: ButtonSize
+    square?: boolean
 }
 
 const Button: FC<ButtonProps> = ({
     children,
     className = '',
-    theme = ButtonVariant.STANDART,
+    variant = ButtonVariant.STANDART,
     size = ButtonSize.MEDIUM,
+    square = false,
     ...otherProps
 }) => {
+    const mods: Record<string, boolean> = {
+        [styles['square']]: square
+    }
+
     return (
         <button
             {...otherProps}
-            className={clsx(styles.button, styles[theme], className, styles[size])}
+            className={clsx(styles.button, styles[variant], mods, className, styles[size])}
         >
             {children}
         </button>
