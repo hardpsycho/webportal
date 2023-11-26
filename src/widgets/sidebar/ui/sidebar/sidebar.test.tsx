@@ -10,10 +10,8 @@ describe('test', () => {
         const toggleBtn = screen.queryByTestId('toggle-collapse') as HTMLElement
         expect(toggleBtn).toBeInTheDocument()
         const sidebar = screen.queryByTestId('sidebar')
-        screen.debug()
         expect(sidebar).not.toHaveClass('collapsed')
         await userEvent.click(toggleBtn)
-        screen.debug()
         expect(sidebar).toHaveClass('collapsed')
     })
 })
