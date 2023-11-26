@@ -24,7 +24,7 @@ describe('Button test', () => {
     })
 
     test('ghost variant', () => {
-        render(<Button theme={ButtonVariant.GHOST}>Text</Button>)
+        render(<Button variant={ButtonVariant.GHOST}>Text</Button>)
         const btn = screen.getByText('Text')
         expect(btn).toHaveClass('ghost')
     })

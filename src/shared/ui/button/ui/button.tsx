@@ -38,7 +38,7 @@ const Button: FC<ButtonProps> = ({
     return (
         <button
             {...otherProps}
-            className={clsx(styles.button, styles[variant], mods, className, styles[size])}
+            className={clsx(styles.button, styles[variant], mods, styles[size], className)}
         >
             {children}
         </button>
