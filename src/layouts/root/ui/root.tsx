@@ -15,7 +15,7 @@ const Root: FC<RootProps> = () => {
     const { theme } = useTheme()
 
     return (
-        <div className={clsx('app', theme)}>
+        <div id='root' className={clsx('app', theme)}>
             <header>
                 <Navbar />
             </header>
