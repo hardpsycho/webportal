@@ -2,16 +2,18 @@ import { ReactNode, type FC, MouseEvent, useEffect, useState, useRef } from 'rea
 import { clsx } from 'clsx'
 
 import styles from './modal.m.scss'
+import { Portal } from '@shared/ui/portal'
 
 interface ModalProps {
     className?: string
     children: ReactNode
     isOpen: boolean
     onCLose: () => void
+    portal?: HTMLElement
 }
 
 const Modal: FC<ModalProps> = (props) => {
-    const { children, className = '', isOpen, onCLose } = props
+    const { children, className = '', isOpen, onCLose, portal } = props
     const [willClose, setWillClose] = useState(false)
     const [willOpen, setWillOpen] = useState(false)
     const timeRef = useRef<NodeJS.Timeout | null>(null)
@@ -23,6 +25,12 @@ const Modal: FC<ModalProps> = (props) => {
     function closeHandler() {
         setWillClose(true)
         setWillOpen(false)
+    }
+
+    function onEscDown(e: KeyboardEvent) {
+        if (e.key === 'Escape') {
+            closeHandler()
+        }
     }
 
     useEffect(() => {
@@ -47,6 +55,11 @@ const Modal: FC<ModalProps> = (props) => {
     useEffect(() => {
         if (isOpen) {
             setWillOpen(true)
+            window.addEventListener('keydown', onEscDown)
+
+            return () => {
+                window.removeEventListener('keydown', onEscDown)
+            }
         }
     }, [isOpen])
 
@@ -55,23 +68,25 @@ const Modal: FC<ModalProps> = (props) => {
     }
 
     return (
-        <div
-            className={clsx(
-                styles.modal,
-                {
-                    [styles.close]: willClose,
-                    [styles.willOpen]: isOpen,
-                    [styles.open]: willOpen
-                },
-                className
-            )}
-        >
-            <div className={clsx(styles.overlay)} onClick={closeHandler}>
-                <div className={styles.content} onClick={clickContentHandler}>
-                    {children}
+        <Portal element={portal}>
+            <div
+                className={clsx(
+                    styles.modal,
+                    {
+                        [styles.close]: willClose,
+                        [styles.willOpen]: isOpen,
+                        [styles.open]: willOpen
+                    },
+                    className
+                )}
+            >
+                <div className={clsx(styles.overlay)} onClick={closeHandler}>
+                    <div className={styles.content} onClick={clickContentHandler}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
 
