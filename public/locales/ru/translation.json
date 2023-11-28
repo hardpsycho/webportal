@@ -2,5 +2,6 @@
   "lang-btn": "EN",
   "main_page": "Главная",
   "about_page": "О нас",
-  "not_found_page": "Страница не найдена"
+  "not_found_page": "Страница не найдена",
+  "login": "Войти"
 }

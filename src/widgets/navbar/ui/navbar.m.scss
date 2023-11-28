@@ -4,6 +4,11 @@
     height: var(--navbar-height);
     display: flex;
     align-items: center;
+    justify-content: end;
     padding: 20px;
-}
 
+    .btn {
+        color: var(--inverted-primary-color);
+        border-color: var(--inverted-primary-color);
+    }
+}
