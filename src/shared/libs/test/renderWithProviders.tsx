@@ -5,20 +5,25 @@ import { MemoryRouter } from 'react-router-dom'
 
 import i18n from '@shared/config/i18n/i18nForTests'
 import { ThemeProvider } from '@shared/theme/themeProvider'
+import { StoreProvider } from '@app/store/ui/storeProvider'
+import { RootStateSchema } from '@app/store'
 
 interface RenderWithProvidersOptions {
     route?: string
+    initialState?: Partial<RootStateSchema>
 }
 
 const RenderWithProviders = (children: ReactNode, options: RenderWithProvidersOptions = {}) => {
-    const { route = '/' } = options
+    const { route = '/', initialState } = options
 
     return render(
-        <MemoryRouter initialEntries={[route]}>
-            <ThemeProvider>
-                <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
-            </ThemeProvider>
-        </MemoryRouter>
+        <StoreProvider initialState={initialState as RootStateSchema}>
+            <MemoryRouter initialEntries={[route]}>
+                <ThemeProvider>
+                    <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+                </ThemeProvider>
+            </MemoryRouter>
+        </StoreProvider>
     )
 }
 
