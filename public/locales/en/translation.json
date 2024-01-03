@@ -3,5 +3,6 @@
   "main_page": "Home",
   "about_page": "About us",
   "not_found_page": "Page Not Found",
-  "login": "Log in"
+  "login": "Log in",
+  "logout": "Logout"
 }
