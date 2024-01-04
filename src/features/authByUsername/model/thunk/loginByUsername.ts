@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 
+import { instanceApi } from '@shared/api/instanceApi'
 import i18n from '@shared/config/i18n/i18n'
 import { LS_ACCESS_TOKEN } from '@shared/const/localStorage'
 import { sessionActions, Session } from '@entities/session'
@@ -11,16 +11,10 @@ export const loginByUsername = createAsyncThunk<
     { rejectValue: string }
 >('login/loginByUsername', async ({ email, password }, thunkAPI) => {
     try {
-        const response = await axios.post<Session>(
-            'http://localhost:5000/auth/login',
-            {
-                email,
-                password
-            },
-            {
-                withCredentials: true
-            }
-        )
+        const response = await instanceApi.post<Session>('/auth/login', {
+            email,
+            password
+        })
 
         if (!response.data || !response.data.accessToken) {
             throw new Error('error')
