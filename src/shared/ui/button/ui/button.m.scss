@@ -4,6 +4,20 @@
     background: var(--primary-color);
     color: var(--inverted-primary-color);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.disabled {
+    opacity: 0.6;
+}
+
+.loading {
+    .children {
+        display: none;
+    }
 }
 
 .standart {
