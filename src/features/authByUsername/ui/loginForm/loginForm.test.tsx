@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import 'react-redux'
 
-import { LoginForm } from './loginForm'
+import LoginForm from './loginForm'
 import { RenderWithProviders } from '@shared/libs/test/renderWithProviders'
 
 // jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => loginFn)

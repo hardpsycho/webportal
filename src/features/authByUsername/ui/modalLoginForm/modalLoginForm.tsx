@@ -1,8 +1,8 @@
-import { type FC } from 'react'
+import { Suspense, type FC } from 'react'
 
 import { Modal } from '@shared/ui/modal'
-import { LoginForm } from '../loginForm/loginForm'
-// import styles from './modalLoginForm.m.css'
+import { LoginFormLazy } from '../loginForm/loginForm.lazy'
+import { Spinner } from '@shared/ui/spinner'
 
 interface ModalLoginFormProps {
     isLoginModalOpen: boolean
@@ -12,7 +12,9 @@ interface ModalLoginFormProps {
 const ModalLoginForm: FC<ModalLoginFormProps> = ({ isLoginModalOpen, onCLose }) => {
     return (
         <Modal isOpen={isLoginModalOpen} onCLose={onCLose}>
-            <LoginForm />
+            <Suspense fallback={<Spinner />}>
+                <LoginFormLazy />
+            </Suspense>
         </Modal>
     )
 }

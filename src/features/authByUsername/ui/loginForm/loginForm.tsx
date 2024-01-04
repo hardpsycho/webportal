@@ -72,4 +72,4 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     )
 }
 
-export { LoginForm }
+export default LoginForm
