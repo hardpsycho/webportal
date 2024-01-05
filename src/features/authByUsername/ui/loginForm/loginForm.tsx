@@ -7,13 +7,14 @@ import { Dispatch } from '@reduxjs/toolkit'
 import { Button } from '@shared/ui/button'
 import styles from './loginForm.m.scss'
 import { Input } from '@shared/ui/input'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getEmail } from '../../model/selectors/getEmail/getEmail'
 import { getPassword } from '../../model/selectors/getPassword/getPassword'
 import { loginByUsername } from '../../model/thunk/loginByUsername'
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { Text, TextTheme } from '@shared/ui/text'
+import { useDynamicReducer } from '@shared/libs/useDynamicReducer/useDynamicReducer'
 
 interface LoginFormProps {
     className?: string
@@ -27,6 +28,8 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const password = useSelector(getPassword)
     const error = useSelector(getLoginError)
     const isLoading = useSelector(getIsLoading)
+
+    useDynamicReducer([{ key: 'loginState', reducer: loginReducer }])
 
     const onchangeEmail = (value: string) => {
         dispatch(loginActions.setEmail(value))
