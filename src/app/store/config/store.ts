@@ -1,18 +1,27 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 
-import { RootStateSchema } from './rootStateSchema'
-import { loginReducer } from '@features/authByUsername/model/slice/loginSlice'
+import { RootStateSchema, StoreWithReducerManager } from './rootStateSchema'
 import { sessionReducer } from '@entities/session'
+import { createReducerManager } from './reducerManager'
 
-export function createReduxStore(initialState?: RootStateSchema) {
-    const rootReducer: ReducersMapObject<RootStateSchema> = {
-        loginState: loginReducer,
-        sessionState: sessionReducer
+export function createReduxStore(
+    initialState?: RootStateSchema,
+    asyncReducers?: Partial<ReducersMapObject<RootStateSchema>>
+) {
+    const staticReducer: ReducersMapObject<RootStateSchema> = {
+        sessionState: sessionReducer,
+        ...asyncReducers
     }
 
-    return configureStore<RootStateSchema>({
-        reducer: rootReducer,
+    const reducerManager = createReducerManager(staticReducer)
+
+    const store: StoreWithReducerManager = configureStore<RootStateSchema>({
+        reducer: reducerManager.reduce as Reducer,
         devTools: WP_DEV,
         preloadedState: initialState
     })
+
+    store.reducerManager = reducerManager
+
+    return store
 }

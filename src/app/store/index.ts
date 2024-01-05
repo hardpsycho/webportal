@@ -1,1 +1,5 @@
-export { RootStateSchema } from './config/rootStateSchema'
+export {
+    RootStateSchema,
+    StoreWithReducerManager,
+    RootStateSchemaKey
+} from './config/rootStateSchema'
