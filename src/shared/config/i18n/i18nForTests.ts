@@ -21,6 +21,7 @@ jest.mock('react-i18next', () => ({
 i18n.init({
     lng: 'ru',
     fallbackLng: 'ru',
+    debug: false,
 
     resources: { ru: { translations: {} } }
 })
