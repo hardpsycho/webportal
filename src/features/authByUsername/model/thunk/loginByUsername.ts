@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { instanceApi } from '@shared/api/instanceApi'
-import i18n from '@shared/config/i18n/i18n'
 import { LS_ACCESS_TOKEN } from '@shared/const/localStorage'
 import { sessionActions, Session } from '@entities/session'
 
@@ -25,7 +24,6 @@ export const loginByUsername = createAsyncThunk<
 
         return response.data
     } catch (error) {
-        console.log(error)
-        return thunkAPI.rejectWithValue(i18n.t('login_error', { ns: 'auth' }))
+        return thunkAPI.rejectWithValue('error')
     }
 })
