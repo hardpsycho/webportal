@@ -8,10 +8,10 @@ import { Button } from '@shared/ui/button'
 import styles from './loginForm.m.scss'
 import { Input } from '@shared/ui/input'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
-import { getEmail } from '../../model/selectors/getEmail/getEmail'
+import { getLoginEmail } from '../../model/selectors/getEmail/getLoginEmail'
 import { getPassword } from '../../model/selectors/getPassword/getPassword'
 import { loginByUsername } from '../../model/thunk/loginByUsername'
-import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading'
+import { getLoginIsLoading } from '../../model/selectors/getIsLoading/getLoginIsLoading'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { Text, TextTheme } from '@shared/ui/text'
 import { useDynamicReducer } from '@shared/libs/useDynamicReducer/useDynamicReducer'
@@ -24,10 +24,10 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const { t } = useTranslation('auth')
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const dispatch = useDispatch<Dispatch<any>>()
-    const email = useSelector(getEmail)
+    const email = useSelector(getLoginEmail)
     const password = useSelector(getPassword)
     const error = useSelector(getLoginError)
-    const isLoading = useSelector(getIsLoading)
+    const isLoading = useSelector(getLoginIsLoading)
 
     useDynamicReducer([{ key: 'loginState', reducer: loginReducer }])
 
