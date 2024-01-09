@@ -3,4 +3,4 @@ export {
     StoreWithReducerManager,
     RootStateSchemaKey
 } from './config/rootStateSchema'
-export { useAppDispatch, useActionsCreator } from './config/store'
+export { useAppDispatch } from './config/store'
