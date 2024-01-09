@@ -1,4 +1,5 @@
 import { Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 
 import { RootStateSchema, StoreWithReducerManager } from './rootStateSchema'
 import { sessionReducer } from '@entities/session'
@@ -25,3 +26,6 @@ export function createReduxStore(
 
     return store
 }
+
+type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export const useAppDispatch = useDispatch<AppDispatch>
