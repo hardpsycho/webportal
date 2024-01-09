@@ -1,4 +1,4 @@
-import { EnhancedStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 
 import { SessionState } from '@entities/session'
 import { LoginState } from '@features/authByUsername'
@@ -11,6 +11,6 @@ export interface RootStateSchema {
 
 export type RootStateSchemaKey = keyof RootStateSchema
 
-export interface StoreWithReducerManager extends EnhancedStore<RootStateSchema> {
+export type StoreWithReducerManager = ReturnType<typeof configureStore<RootStateSchema>> & {
     reducerManager?: ReturnType<typeof createReducerManager>
 }
