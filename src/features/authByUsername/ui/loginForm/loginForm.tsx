@@ -1,8 +1,7 @@
 import { type FC, MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { clsx } from 'clsx'
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch } from '@reduxjs/toolkit'
 
 import { Button } from '@shared/ui/button'
 import styles from './loginForm.m.scss'
@@ -15,6 +14,7 @@ import { getLoginIsLoading } from '../../model/selectors/getIsLoading/getLoginIs
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { Text, TextTheme } from '@shared/ui/text'
 import { useDynamicReducer } from '@shared/libs/useDynamicReducer/useDynamicReducer'
+import { useAppDispatch } from '@app/store'
 
 interface LoginFormProps {
     className?: string
@@ -22,8 +22,7 @@ interface LoginFormProps {
 
 const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const { t } = useTranslation('auth')
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const dispatch = useDispatch<Dispatch<any>>()
+    const dispatch = useAppDispatch()
     const email = useSelector(getLoginEmail)
     const password = useSelector(getPassword)
     const error = useSelector(getLoginError)
