@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo, type FC } from 'react'
 import { clsx } from 'clsx'
 
 import styles from './text.m.scss'
@@ -15,7 +15,7 @@ interface TextProps {
     theme?: TextTheme
 }
 
-const Text: FC<TextProps> = ({ className, title, text, theme = TextTheme.PRIMARY }) => {
+const Text: FC<TextProps> = memo(({ className, title, text, theme = TextTheme.PRIMARY }) => {
     const mods = {
         [styles[theme]]: true
     }
@@ -25,6 +25,8 @@ const Text: FC<TextProps> = ({ className, title, text, theme = TextTheme.PRIMARY
             {text && <p className={styles.text}>{text}</p>}
         </div>
     )
-}
+})
+
+Text.displayName = 'Text'
 
 export { Text }
