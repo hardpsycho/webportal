@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { clsx } from 'clsx'
 
@@ -10,7 +10,7 @@ interface SidebarItemProps extends SidebarItemType {
     collapsed?: boolean
 }
 
-const SidebarItem: FC<SidebarItemProps> = ({ path, text, Icon, collapsed = false }) => {
+const SidebarItem: FC<SidebarItemProps> = memo(({ path, text, Icon, collapsed = false }) => {
     const { t } = useTranslation()
 
     return (
@@ -21,6 +21,8 @@ const SidebarItem: FC<SidebarItemProps> = ({ path, text, Icon, collapsed = false
             <p className={clsx(styles.text, { [styles.collapsed]: collapsed })}>{t(text)}</p>
         </AppLink>
     )
-}
+})
+
+SidebarItem.displayName = 'SidebarItem'
 
 export { SidebarItem }
