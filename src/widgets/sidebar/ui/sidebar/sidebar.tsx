@@ -1,20 +1,17 @@
 import { clsx } from 'clsx'
 import { useState, type FC } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { Button, ButtonVariant, ButtonSize } from '@shared/ui/button'
-import { AppLink, AppLinkVariant } from '@shared/ui/appLink'
 import styles from './sidebar.m.scss'
 import { ThemeSwitcher } from '@features/themeSwitcher'
 import { LangSwitcher } from '@features/langSwitcher'
-import HomeIcon from './../../assets/images/houseIcon.svg'
-import ProfileIcon from './../../assets/images/profileIcon.svg'
+import { sidebarItems } from './../../model/items'
+import { SidebarItem } from '../sidebarItem/sidebarItem'
 
 interface SidebarProps {}
 
 const Sidebar: FC<SidebarProps> = () => {
     const [collapsed, setCollapsed] = useState(false)
-    const { t } = useTranslation()
 
     const sidebarToggle = function () {
         setCollapsed((prev) => !prev)
@@ -27,22 +24,17 @@ const Sidebar: FC<SidebarProps> = () => {
         >
             <div className={styles.items}>
                 <nav className={styles.links}>
-                    <AppLink variant={AppLinkVariant.INVERTED} to={'/'} className={styles.link}>
-                        <div>
-                            <HomeIcon />
-                        </div>
-                        <p className={styles.text}>{t('main_page')}</p>
-                    </AppLink>
-                    <AppLink
-                        variant={AppLinkVariant.INVERTED}
-                        to={'/about'}
-                        className={styles.link}
-                    >
-                        <div>
-                            <ProfileIcon />
-                        </div>
-                        <p className={styles.text}>{t('about_page')}</p>
-                    </AppLink>
+                    {sidebarItems.map((item) => {
+                        return (
+                            <SidebarItem
+                                key={item.path}
+                                path={item.path}
+                                text={item.text}
+                                Icon={item.Icon}
+                                collapsed={collapsed}
+                            />
+                        )
+                    })}
                 </nav>
             </div>
             <Button
