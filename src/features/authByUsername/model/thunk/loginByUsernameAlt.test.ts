@@ -12,7 +12,7 @@ describe('test loginByUsername alternative variant', () => {
         mockedInstance.post.mockReturnValue(Promise.resolve({ data: mockDAta }))
 
         const thunk = loginByUsername({ email: 'test@test.com', password: 'qwerty' })
-        await thunk(dispatch, () => {}, undefined)
+        await thunk(dispatch, () => {}, { api: mockedInstance })
 
         const dispatch3 = dispatch.mock.calls[2]
 
@@ -24,7 +24,7 @@ describe('test loginByUsername alternative variant', () => {
         mockedInstance.post.mockReturnValue(Promise.resolve({ status: 403 }))
 
         const thunk = loginByUsername({ email: 'test@test.com', password: 'qwerty' })
-        await thunk(dispatch, () => {}, undefined)
+        await thunk(dispatch, () => {}, { api: mockedInstance })
 
         const dispatch2 = dispatch.mock.calls[1]
 
