@@ -8,3 +8,4 @@ declare module '*.svg' {
 }
 declare module '*.svg?url'
 declare const WP_DEV: boolean
+declare const WP_API: string

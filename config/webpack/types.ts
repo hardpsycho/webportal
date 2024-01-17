@@ -10,10 +10,12 @@ export interface ConfigOptions {
     port: number
     isDev: boolean
     analyze: boolean
+    apiUrl: string
 }
 
 export interface WebpackArgs {
     port?: string
     mode?: Mode
     analyze?: string
+    apiUrl: string
 }
