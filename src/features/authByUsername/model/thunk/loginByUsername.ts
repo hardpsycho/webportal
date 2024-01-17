@@ -1,16 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { instanceApi } from '@shared/api/instanceApi'
 import { LS_ACCESS_TOKEN } from '@shared/const/localStorage'
 import { sessionActions, Session } from '@entities/session'
+import { ThunkConfig } from '@app/store'
 
 export const loginByUsername = createAsyncThunk<
     Session,
     { email: string; password: string },
-    { rejectValue: string }
+    ThunkConfig<string>
 >('login/loginByUsername', async ({ email, password }, thunkAPI) => {
     try {
-        const response = await instanceApi.post<Session>('/auth/login', {
+        const response = await thunkAPI.extra.api.post<Session>('/auth/login', {
             email,
             password
         })
