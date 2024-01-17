@@ -2,14 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { LS_ACCESS_TOKEN } from '@shared/const/localStorage'
 import { sessionActions } from '../slice/sessionSlice'
-import { instanceApi } from '@shared/api/instanceApi'
 import { Session } from '../types/session'
+import { ThunkConfig } from '@app/store'
 
-export const refreshSession = createAsyncThunk<Session, undefined, { rejectValue: string }>(
+export const refreshSession = createAsyncThunk<Session, undefined, ThunkConfig<string>>(
     'session/refresh',
     async (_, thunkAPI) => {
         try {
-            const response = await instanceApi.get<Session>('/auth/refresh')
+            const response = await thunkAPI.extra.api.get<Session>('/auth/refresh')
 
             if (!response.data || !response.data.accessToken) {
                 thunkAPI.dispatch(sessionActions.removeSession())

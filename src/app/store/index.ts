@@ -1,6 +1,7 @@
 export {
     RootStateSchema,
     StoreWithReducerManager,
-    RootStateSchemaKey
+    RootStateSchemaKey,
+    ThunkConfig
 } from './config/rootStateSchema'
 export { useAppDispatch } from './config/store'
