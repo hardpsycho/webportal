@@ -4,7 +4,7 @@ import { LS_ACCESS_TOKEN } from '@shared/const/localStorage'
 import { sessionActions } from '../slice/sessionSlice'
 import { ThunkConfig } from '@app/store'
 
-export const logoutSession = createAsyncThunk<undefined, null, ThunkConfig<string>>(
+export const logoutSession = createAsyncThunk<undefined, undefined, ThunkConfig<string>>(
     'session/logout',
     async (_, thunkAPI) => {
         try {
