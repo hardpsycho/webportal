@@ -1,7 +1,12 @@
-import { Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { Reducer, ReducersMapObject, UnknownAction, configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
-import { RootStateSchema, StoreWithReducerManager, AppDispatch } from './rootStateSchema'
+import {
+    RootStateSchema,
+    StoreWithReducerManager,
+    AppDispatch,
+    StoreMiddleware
+} from './rootStateSchema'
 import { sessionReducer } from '@entities/session'
 import { createReducerManager } from './reducerManager'
 import { instanceApi } from '@shared/api/instanceApi'
@@ -17,7 +22,11 @@ export function createReduxStore(
 
     const reducerManager = createReducerManager(staticReducer)
 
-    const store: StoreWithReducerManager = configureStore({
+    const store: StoreWithReducerManager = configureStore<
+        RootStateSchema,
+        UnknownAction,
+        StoreMiddleware
+    >({
         reducer: reducerManager.reduce as Reducer,
         devTools: WP_DEV,
         preloadedState: initialState,
