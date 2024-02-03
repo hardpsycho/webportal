@@ -28,7 +28,7 @@ instanceApi.interceptors.response.use(
 
         // If the error is a 401 and we have a refresh token, refresh the JWT token
         if (error.response.status === 401) {
-            const response = await instanceApi.get('/api/auth/refresh')
+            const response = await instanceApi.get('auth/refresh')
             localStorage.setItem(LS_ACCESS_TOKEN, response.data.accessToken)
 
             // Re-run the original request that was intercepted

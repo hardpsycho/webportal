@@ -1,9 +1,10 @@
 {
-  "lang-btn": "EN",
-  "main_page": "Главная",
-  "about_page": "О нас",
-  "not_found_page": "Страница не найдена",
-  "login": "Войти",
-  "logout": "Выйти",
-  "profile_page": "Профиль"
+    "lang-btn": "EN",
+    "main_page": "Главная",
+    "about_page": "О нас",
+    "not_found_page": "Страница не найдена",
+    "login": "Войти",
+    "logout": "Выйти",
+    "profile_page": "Профиль",
+    "profile": "Профиль"
 }
