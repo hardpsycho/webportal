@@ -5,7 +5,7 @@ import { clsx } from 'clsx'
 import styles from './profileCard.m.scss'
 import { Spinner } from '@shared/ui/spinner'
 import { Profile } from '../../model/types/profile'
-import { Text, TextTheme } from '@shared/ui/text'
+import { Text, TextAlign, TextTheme } from '@shared/ui/text'
 
 interface ProfileCardProps {
     className?: string
@@ -27,7 +27,7 @@ const ProfileCard: FC<ProfileCardProps> = ({ isLoading, profile, error, classNam
     if (error) {
         return (
             <div className={clsx(styles.profile, className)}>
-                <Text title={t('profile-loading-error')} theme={TextTheme.ERROR} />
+                <Text title={t('profile-loading-error')} theme={TextTheme.ERROR} align={TextAlign.CENTER} />
             </div>
         )
     }
